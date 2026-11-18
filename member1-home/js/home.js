@@ -44,7 +44,7 @@
   var FALLBACK = {
     header:
       '<nav class="navbar navbar-expand-md sc-nav sticky-top"><div class="container">' +
-      '<a class="navbar-brand sc-brand" href="../member1-home/home.html"><img src="../assets/img/logo-mark.svg" alt="" width="32" height="32"><span>SafeCheck <span class="sc-brand__vn">VN</span></span></a>' +
+      '<a class="navbar-brand sc-brand" href="../member1-home/home.html"><span>SafeCheck <span class="sc-brand__vn">VN</span></span></a>' +
       '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#scNav" aria-controls="scNav" aria-expanded="false" aria-label="Mở menu"><span class="navbar-toggler-icon"></span></button>' +
       '<div class="collapse navbar-collapse" id="scNav">' +
       '<ul class="navbar-nav mx-md-auto">' +
