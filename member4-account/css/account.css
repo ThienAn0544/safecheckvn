@@ -1,1 +1,50 @@
-/* CSS tài khoản */
+body {
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  min-height: 100vh;
+}
+.auth-card {
+  max-width: 440px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.letter-spacing-2 {
+  letter-spacing: 4px;
+}
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  color: #fff;
+}
+.sidebar-nav .nav-link {
+  color: #495057;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+.sidebar-nav .nav-link:hover {
+  background-color: #e9ecef;
+}
+.sidebar-nav .nav-link.active {
+  background-color: #0d6efd;
+  color: #fff;
+}
+.badge-item {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 12px;
+}
+.badge-locked {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
