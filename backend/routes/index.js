@@ -1,4 +1,5 @@
 const router = require('express').Router();
+router.use('/auth', require('./auth.routes'));
 router.use('/warnings', require('./warning.routes'));
 router.use('/reports', require('./report.routes'));
 router.use('/stats', require('./stats.routes'));

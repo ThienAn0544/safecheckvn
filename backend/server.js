@@ -7,7 +7,10 @@ const errorHandler = require('./middleware/error-handler');
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
-app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL : true,
+  credentials: true
+}));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '..')));
