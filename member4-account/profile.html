@@ -1,1 +1,219 @@
-<!-- Hồ sơ cá nhân -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồ sơ cá nhân - SafeCheckVN</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/account.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Navbar tạm thời (Có thể thay bằng include shared/navbar.html của Thành viên 6) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="profile.html">
+      <i class="bi bi-shield-check text-info me-2"></i>SafeCheckVN - Hồ sơ cá nhân
+    </a>
+    <div class="d-flex align-items-center gap-2">
+      <span class="text-light small d-none d-sm-inline" id="navGreeting">Xin chào!</span>
+      <button class="btn btn-outline-light btn-sm" id="btnLogout">
+        <i class="bi bi-box-arrow-right me-1"></i>Đăng xuất
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container pb-5">
+  <div class="row g-4">
+    <!-- CỘT TRÁI: SIDEBAR HỒ SƠ -->
+    <div class="col-lg-4 col-xl-3">
+      <div class="card profile-card p-3 mb-3 text-center border-0 shadow-sm">
+        <div class="avatar-circle mx-auto mb-2" id="userAvatar">NV</div>
+        <h5 class="fw-bold mb-0" id="sidebarName">Nguyễn Văn A</h5>
+        <p class="text-muted small mb-2" id="sidebarContact">nguyenvana@gmail.com</p>
+
+        <div class="bg-body-secondary rounded-3 p-2 mb-3">
+          <div class="d-flex justify-content-between align-items-center small mb-1">
+            <span class="text-muted">Điểm uy tín:</span>
+            <span class="fw-bold text-primary fs-6" id="sidebarPoints">125 điểm</span>
+          </div>
+          <span class="badge bg-warning text-dark w-100 py-1" id="sidebarRank">
+            <i class="bi bi-award-fill me-1"></i>Thám tử Cộng đồng
+          </span>
+        </div>
+
+        <!-- Menu Sidebar -->
+        <div class="nav flex-column nav-pills sidebar-nav" id="profileTabs" role="tablist">
+          <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-reports" type="button">
+            <i class="bi bi-file-earmark-text me-2"></i>Báo cáo đã gửi
+            <span class="badge bg-secondary float-end mt-1" id="countReports">0</span>
+          </button>
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-watchlist" type="button">
+            <i class="bi bi-bookmark-star me-2"></i>Đối tượng theo dõi
+            <span class="badge bg-secondary float-end mt-1" id="countWatchlist">0</span>
+          </button>
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-reputation" type="button">
+            <i class="bi bi-trophy me-2"></i>Điểm uy tín & Huy hiệu
+          </button>
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-settings" type="button">
+            <i class="bi bi-gear me-2"></i>Cập nhật hồ sơ & Mật khẩu
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CỘT PHẢI: DASHBOARD 2 CỘT NỘI DUNG -->
+    <div class="col-lg-8 col-xl-9">
+      <!-- Thẻ thống kê nhanh -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card p-3 border-start border-4 border-primary border-0 shadow-sm">
+            <div class="text-muted small">Tổng tố cáo đã gửi</div>
+            <div class="fs-4 fw-bold" id="statTotalReports">0</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 border-start border-4 border-success border-0 shadow-sm">
+            <div class="text-muted small">Tố cáo đã được duyệt</div>
+            <div class="fs-4 fw-bold text-success" id="statApprovedReports">0</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 border-start border-4 border-warning border-0 shadow-sm">
+            <div class="text-muted small">Đối tượng đang theo dõi</div>
+            <div class="fs-4 fw-bold text-warning" id="statWatchlist">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <!-- 1. BÁO CÁO ĐÃ GỬI -->
+        <div class="tab-pane fade show active" id="tab-reports">
+          <div class="card p-4 border-0 shadow-sm">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <h5 class="fw-bold mb-0"><i class="bi bi-list-check text-primary me-2"></i>Lịch sử báo cáo tố cáo</h5>
+              <select class="form-select form-select-sm w-auto" id="filterReportStatus">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="approved">Đã duyệt</option>
+                <option value="pending">Chờ duyệt</option>
+                <option value="rejected">Từ chối</option>
+              </select>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Mã BC</th>
+                    <th>Đối tượng (STK / SĐT / Link)</th>
+                    <th>Hình thức</th>
+                    <th>Ngày gửi</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody id="reportsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ĐỐI TƯỢNG THEO DÕI -->
+        <div class="tab-pane fade" id="tab-watchlist">
+          <div class="card p-4 border-0 shadow-sm">
+            <h5 class="fw-bold mb-3"><i class="bi bi-eye-fill text-warning me-2"></i>Đối tượng đang theo dõi</h5>
+            <form id="addWatchlistForm" class="row g-2 mb-4">
+              <div class="col-md-5">
+                <input type="text" class="form-control form-control-sm" id="watchTarget" placeholder="Nhập STK, SĐT hoặc URL..." required>
+              </div>
+              <div class="col-md-4">
+                <input type="text" class="form-control form-control-sm" id="watchNote" placeholder="Ghi chú (VD: Shop giày lừa đảo)" required>
+              </div>
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-primary btn-sm w-100"><i class="bi bi-plus-circle me-1"></i>Theo dõi</button>
+              </div>
+            </form>
+            <div class="row g-3" id="watchlistContainer"></div>
+          </div>
+        </div>
+
+        <!-- 3. ĐIỂM UY TÍN & HUY HIỆU -->
+        <div class="tab-pane fade" id="tab-reputation">
+          <div class="card p-4 border-0 shadow-sm">
+            <h5 class="fw-bold mb-3"><i class="bi bi-award text-warning me-2"></i>Điểm uy tín & Huy hiệu thành viên</h5>
+            <div class="bg-body-secondary p-3 rounded-3 mb-4">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="fw-semibold">Cấp: <span class="text-primary" id="repCurrentRank">Thám tử Cộng đồng</span></span>
+                <span class="small text-muted" id="repProgressText">125 / 200 điểm</span>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar bg-success" id="repProgressBar" style="width: 62%;"></div>
+              </div>
+            </div>
+            <h6 class="fw-bold mb-3">Bộ sưu tập huy hiệu</h6>
+            <div class="row g-3" id="badgesContainer"></div>
+          </div>
+        </div>
+
+        <!-- 4. CẬP NHẬT HỒ SƠ & MẬT KHẨU -->
+        <div class="tab-pane fade" id="tab-settings">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card p-4 h-100 border-0 shadow-sm">
+                <h5 class="fw-bold mb-3"><i class="bi bi-person-lines-fill text-primary me-2"></i>Thông tin cá nhân</h5>
+                <div id="profileUpdateAlert" class="alert d-none py-2 small"></div>
+                <form id="updateProfileForm">
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Họ và tên</label>
+                    <input type="text" class="form-control" id="editFullName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Email</label>
+                    <input type="email" class="form-control" id="editEmail" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Số điện thoại</label>
+                    <input type="text" class="form-control" id="editPhone">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Giới thiệu ngắn</label>
+                    <textarea class="form-control" id="editBio" rows="2"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100 fw-semibold">Lưu thay đổi</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card p-4 h-100 border-0 shadow-sm">
+                <h5 class="fw-bold mb-3"><i class="bi bi-shield-lock text-danger me-2"></i>Đổi mật khẩu</h5>
+                <div id="passwordUpdateAlert" class="alert d-none py-2 small"></div>
+                <form id="changePasswordForm">
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Mật khẩu hiện tại</label>
+                    <input type="password" class="form-control" id="currentPassword" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Mật khẩu mới</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="Tối thiểu 6 ký tự" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Xác nhận mật khẩu mới</label>
+                    <input type="password" class="form-control" id="confirmNewPassword" required>
+                  </div>
+                  <button type="submit" class="btn btn-danger w-100 fw-semibold">Cập nhật mật khẩu</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>
