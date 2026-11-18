@@ -1,0 +1,1 @@
+(async()=>{try{const{data}=await SafeCheck.api('/stats');Object.entries(data).forEach(([key,value])=>{const target=document.querySelector(`[data-stat="${key}"]`);if(target)target.textContent=Number(value).toLocaleString('vi-VN')})}catch(_error){/* Giữ số minh họa nếu backend chưa chạy. */}})();

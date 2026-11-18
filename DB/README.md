@@ -1,3 +1,3 @@
-# Database
+# Cơ sở dữ liệu SafeCheck
 
-Thư mục chứa schema, migration và dữ liệu khởi tạo.
+MySQL 8+. Chạy `schema.sql` trước, sau đó `seed.sql`. Các bảng chính: `users`, `categories`, `reports`, `warnings`, `news`.

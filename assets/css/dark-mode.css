@@ -1,1 +1,2 @@
-/* CSS dark mode */
+﻿body.dark{--ink:#e9fff7;--muted:#aac5e5;--line:#244d78;--white:#0c2747;background:#071b33}body.dark .site-header,body.dark .card,body.dark .hero-card,body.dark .stats-grid,body.dark input,body.dark select,body.dark textarea,body.dark .data-table{background:#0c2747}body.dark .hero,body.dark .page-head{background:linear-gradient(135deg,#102f55,#071b33)}
+

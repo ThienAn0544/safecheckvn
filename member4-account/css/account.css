@@ -1,7 +1,4 @@
-body {
-  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-  min-height: 100vh;
-}
+body { background: linear-gradient(135deg, #eef6ff 0%, #f8fbff 55%, #e3efff 100%); min-height: 100vh; }
 .auth-card {
   max-width: 440px;
   width: 100%;
@@ -9,6 +6,15 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
+.login-icon { width:58px;height:58px;display:grid;place-items:center;margin-bottom:18px;border-radius:18px;background:var(--primary-soft);font-size:1.65rem }
+.auth-card .field { margin-top:17px }
+.password-row { display:grid;grid-template-columns:1fr auto;gap:8px }
+.login-options { display:flex;justify-content:space-between;align-items:center;gap:14px;margin:18px 0;font-size:.92rem }
+.login-options a,.register-link a { color:var(--primary);font-weight:700 }
+.remember { display:flex;align-items:center;gap:7px;font-weight:500 }
+.remember input { width:auto }
+.login-submit { width:100% }
+.register-link { text-align:center;margin:22px 0 0;color:var(--muted) }
 .letter-spacing-2 {
   letter-spacing: 4px;
 }

@@ -1,1 +1,0 @@
-// JavaScript trang báo cáo
