@@ -14,6 +14,7 @@ async function authFetch(path, options = {}) {
   return window.SafeCheck.api(path, {
     ...options,
     headers: {
+      'Content-Type': 'application/json',
       ...(options.headers || {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {})
     }
