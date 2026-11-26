@@ -23,7 +23,7 @@ document.querySelectorAll('[data-current-year]').forEach(el => { el.textContent 
 function setupAccountMenu() {
   const token = localStorage.getItem('safecheck-token') || sessionStorage.getItem('safecheck-token');
   const rawUser = localStorage.getItem('safecheck-user') || sessionStorage.getItem('safecheck-user');
-  const loginLink = document.querySelector('a[href*="member4-account/login.html"]');
+  const loginLink = document.querySelector('a[href*="account/login.html"]');
   if (!token || !rawUser || !loginLink) return;
 
   try {

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đăng ký - SafeCheck</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../index.html"><span class="brand-mark">✓</span>SafeCheck</a>
+      <div class="nav-links">
+        <a href="../index.html">Trang chủ</a>
+        <a href="../warning/warning-list.html">Cảnh báo</a>
+        <a href="../report/report.html">Gửi báo cáo</a>
+        <a href="login.html">Đăng nhập</a>
+        <button class="button outline" type="button" data-dark-toggle>◐</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="auth-wrap">
+    <section class="card auth-card">
+      <div class="auth-icon">🛡️</div>
+      <div class="eyebrow">Thành viên mới</div>
+      <h1>Tạo tài khoản</h1>
+      <p class="muted">Chung tay xây dựng cộng đồng cảnh báo lừa đảo trực tuyến an toàn.</p>
+
+      <form id="registerForm">
+        <div class="field">
+          <label for="fullName">Họ và tên hiển thị *</label>
+          <input id="fullName" type="text" required placeholder="Nguyễn Văn An">
+        </div>
+
+        <div class="field">
+          <label for="registerEmail">Email *</label>
+          <div class="input-action-row">
+            <input id="registerEmail" type="email" required placeholder="email@example.com">
+            <button id="btnSendRegOtp" class="button outline" type="button">Gửi OTP</button>
+          </div>
+          <small class="muted" id="otpHelperText">Nhấn "Gửi OTP" để nhận mã xác thực 6 chữ số.</small>
+        </div>
+
+        <div class="field">
+          <label for="registerPhone">Số điện thoại (tùy chọn)</label>
+          <input id="registerPhone" type="tel" placeholder="0901234567">
+        </div>
+
+        <div class="field">
+          <label for="registerOtp">Mã xác thực OTP *</label>
+          <input id="registerOtp" class="otp-input" type="text" maxlength="6" required placeholder="••••••">
+        </div>
+
+        <div class="field">
+          <label for="registerPassword">Mật khẩu (tối thiểu 8 ký tự) *</label>
+          <input id="registerPassword" type="password" minlength="8" required placeholder="••••••••">
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Nhập lại mật khẩu *</label>
+          <input id="confirmPassword" type="password" required placeholder="••••••••">
+        </div>
+
+        <button class="button full-btn" style="margin-top: 20px;" type="submit">Hoàn tất đăng ký</button>
+        <div id="registerAlert" class="message" role="status"></div>
+      </form>
+
+      <p class="register-link">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+    </section>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dark-mode.js"></script>
+  <script src="../backend/public/js/account/register.js"></script>
+</body>
+</html>

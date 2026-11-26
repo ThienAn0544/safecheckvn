@@ -79,3 +79,12 @@ CREATE TABLE IF NOT EXISTS watchlist (
   CONSTRAINT fk_watchlist_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
   UNIQUE KEY uq_user_suspect(user_id,suspect_value)
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS report_decisions (
+  report_id BIGINT UNSIGNED PRIMARY KEY,
+  reviewer_id BIGINT UNSIGNED NULL,
+  reason VARCHAR(500) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (report_id) REFERENCES reports(id) ON DELETE CASCADE,
+  FOREIGN KEY (reviewer_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;

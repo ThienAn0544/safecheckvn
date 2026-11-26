@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quản trị | SafeCheck</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Điều hướng chính">
+      <a class="brand" href="../index.html"><span class="brand-mark">✓</span>SafeCheck</a>
+      <div class="nav-links">
+        <a href="../index.html">Trang chủ</a>
+        <a href="../warning/warning-list.html">Cảnh báo</a>
+        <a href="../news/news.html">Tin tức</a>
+        <a href="../report/report.html">Gửi báo cáo</a>
+        <a href="../account/login.html">Tài khoản</a>
+        <button class="button outline" type="button" data-dark-toggle aria-label="Đổi giao diện">◐</button>
+      </div>
+    </nav>
+  </header>
+  <main class="container admin-dashboard">
+    <h1>Quản trị SafeCheck</h1>
+    <p id="admin-message" role="status">Đang kiểm tra quyền truy cập…</p>
+    <div id="admin-content" hidden>
+      <nav class="admin-links" aria-label="Điều hướng quản trị">
+        <a href="#reports">Duyệt báo cáo</a>
+        <a href="#users">Quản lý tài khoản</a>
+      </nav>
+      <dl id="admin-totals" class="admin-grid"></dl>
+      <section id="reports">
+        <h2>Hàng đợi báo cáo</h2>
+        <div id="report-list" class="admin-grid"></div>
+      </section>
+      <section id="users">
+        <h2>Tài khoản</h2>
+        <div id="user-list" class="admin-grid"></div>
+      </section>
+    </div>
+  </main>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dark-mode.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

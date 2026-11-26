@@ -84,6 +84,9 @@ exports.socialLogin = async (req, res, next) => {
 
     const [rows] = await pool.execute('SELECT * FROM users WHERE email = ? LIMIT 1', [email]);
     let user = rows[0];
+    if (user && (user.role !== 'user' || user.status !== 'active')) {
+      return res.status(403).json({ success: false, message: 'Tài khoản này không dùng được đăng nhập mẫu.' });
+    }
     if (!user) {
       const hash = await bcrypt.hash('SocialLogin@2026', 10);
       const [result] = await pool.execute(
@@ -105,7 +108,7 @@ exports.forgotPassword = async (req, res, next) => {
     const email = String(req.body.email || '').trim().toLowerCase();
     if (!email) return res.status(422).json({ success: false, message: 'Vui lòng nhập email đã đăng ký.' });
 
-    const [rows] = await pool.execute('SELECT id FROM users WHERE email = ? LIMIT 1', [email]);
+    const [rows] = await pool.execute("SELECT id FROM users WHERE email = ? AND role = 'user' AND status = 'active' LIMIT 1", [email]);
     if (!rows[0]) {
       return res.status(404).json({ success: false, message: 'Không tìm thấy tài khoản với email này.' });
     }
@@ -137,7 +140,8 @@ exports.resetPassword = async (req, res, next) => {
     }
 
     const hash = await bcrypt.hash(newPassword, 12);
-    await pool.execute('UPDATE users SET password_hash = ? WHERE email = ?', [hash, email]);
+    const [result] = await pool.execute("UPDATE users SET password_hash = ? WHERE email = ? AND role = 'user' AND status = 'active'", [hash, email]);
+    if (!result.affectedRows) return res.status(403).json({ success: false, message: 'Không thể đặt lại mật khẩu cho tài khoản này.' });
     otpStore.delete(email);
 
     res.json({ success: true, message: 'Đặt lại mật khẩu thành công. Bạn có thể đăng nhập ngay.' });

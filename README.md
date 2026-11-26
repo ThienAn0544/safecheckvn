@@ -136,7 +136,7 @@ Chi tiết trường, index, PK, FK và `ON DELETE` nằm trong `DB/schema.sql`.
 
 ```text
 assets/js/                  JavaScript dùng chung toàn website
-backend/public/js/member*/  DOM, form, fetch API và hiển thị của thành viên 1–4
+backend/public/js/          JavaScript theo chức năng: home, report, warning, account
 backend/server.js           Express, middleware, static files
 backend/routes/             URL và HTTP method
 backend/controllers/        Validation, truy vấn, JSON response
@@ -145,12 +145,12 @@ backend/middleware/         Xử lý lỗi
 DB/                         Schema và seed, không phải JS runtime
 ```
 
-Theo quy ước của nhóm, JavaScript đã hoàn thành của thành viên 1–4 được tập trung tại `backend/public/js/` và được Express phục vụ như tài nguyên tĩnh. Các file placeholder của thành viên 5–6 vẫn nằm trong thư mục thành viên. Logic truy vấn dữ liệu nằm riêng trong controller Back-end.
+Express phục vụ JavaScript tĩnh trong backend/public/js/. Các trang được chia theo chức năng trong report/, warning/, account/, news/ và admin/. Trang chủ nằm ở index.html.
 
 ## Cấu trúc phần đăng nhập
 
 ```text
-member4-account/
+account/
 ├── login.html                         Form email/mật khẩu
 ├── register.html                      Form tạo tài khoản
 ├── forgot-password.html               Giao diện quên mật khẩu
@@ -162,7 +162,7 @@ backend/
 ├── controllers/auth.controller.js     Kiểm tra dữ liệu, bcrypt và JWT
 ├── middleware/require-auth.js          Xác thực Bearer token
 ├── config/database.js                 Pool kết nối MySQL
-└── public/js/member4/
+└── public/js/account/
     ├── login.js                       Gửi form đăng nhập, lưu token
     ├── register.js                    Gửi form đăng ký
     └── profile.js                     Hiển thị/lưu thông tin hồ sơ
