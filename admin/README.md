@@ -24,6 +24,7 @@
 - Hình 3.2 — Nhập lý do kiểm duyệt và xem kết quả.
 - Hình 3.3 — Khóa và mở khóa tài khoản.
 - Hình 3.4 — Dashboard trên màn hình nhỏ và chế độ tối.
+- Hình 6.1 — Lối quay lại dashboard từ Trang chủ.
 - Hình 5.1–5.3 — Tài khoản admin, quyết định kiểm duyệt và trạng thái người dùng trong MySQL.
 - Hình 7.1–7.2 — Báo cáo Lighthouse trước và sau tối ưu, khi có dữ liệu đo.
 
@@ -81,10 +82,25 @@ Dashboard dùng HTML, CSS và JavaScript thuần. Lưới tự đổi số cột
 
 ### 3.2. Minh chứng giao diện
 
-- **Hình 3.1:** [Bổ sung ảnh dashboard sau khi đăng nhập admin.]
-- **Hình 3.2:** [Bổ sung ảnh nhập lý do và kết quả duyệt hoặc từ chối.]
-- **Hình 3.3:** [Bổ sung ảnh danh sách tài khoản và thao tác khóa/mở khóa.]
-- **Hình 3.4:** [Bổ sung ảnh dashboard ở viewport nhỏ và chế độ tối.]
+Ảnh được chụp từ giao diện SafeCheck chạy trong Chrome với dữ liệu demo giả lập cho API.
+
+**Hình 3.1 — Dashboard và hàng đợi báo cáo**
+
+![Dashboard quản trị với số liệu và hàng đợi báo cáo](screenshots/dashboard.png)
+
+**Hình 3.2 — Nhập lý do và xem kết quả sau khi duyệt**
+
+![Ô nhập lý do trước khi duyệt báo cáo](screenshots/report-review.png)
+
+![Báo cáo đã duyệt và lý do hiển thị trên thẻ](screenshots/report-result.png)
+
+**Hình 3.3 — Quản lý tài khoản sau thao tác khóa**
+
+![Danh sách tài khoản với nút mở khóa cho tài khoản vừa khóa](screenshots/user-management.png)
+
+**Hình 3.4 — Dashboard trên điện thoại ở chế độ tối**
+
+![Dashboard ở chiều rộng 390 pixel, sử dụng giao diện tối](screenshots/mobile-dark.png)
 
 <a id="chuong-4"></a>
 ## Chương 4. Xây dựng Back-end
@@ -161,6 +177,12 @@ SELECT id, full_name, role, status FROM users WHERE role <> 'admin';
 
 4. Đăng nhập lại qua `/account/login.html`, mở dashboard tại `/admin/admin.html` và thử duyệt hoặc từ chối một báo cáo đang `pending` trong MySQL.
 5. Thử khóa và mở khóa tài khoản thường, kiểm tra kết quả qua câu truy vấn ở Chương 5. Thử lại API với tài khoản thường để minh chứng phân quyền.
+
+Khi đang ở Trang chủ, chọn **Quản trị** trên thanh điều hướng để mở lại dashboard. Link này xuất hiện khi phiên đăng nhập hiện tại có role `admin`.
+
+**Hình 6.1 — Nút Quản trị trên thanh điều hướng Trang chủ**
+
+![Header Trang chủ hiển thị link Quản trị cho phiên admin demo](screenshots/home-navigation.png)
 
 <a id="chuong-7"></a>
 ## Chương 7. Đánh giá website bằng Lighthouse

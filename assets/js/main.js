@@ -43,6 +43,17 @@ function setupAccountMenu() {
         <button type="button" data-logout>Đăng xuất</button>
       </div>`;
     loginLink.replaceWith(wrapper);
+    if (user.role === 'admin') {
+      const dashboardLink = document.createElement('a');
+      dashboardLink.href = new URL('../admin/admin.html', loginLink.href).href;
+      dashboardLink.textContent = 'Quản trị';
+      dashboardLink.className = 'admin-nav-link';
+      wrapper.parentElement.classList.add('nav-links-admin');
+      if (location.pathname === new URL(dashboardLink.href).pathname) {
+        dashboardLink.setAttribute('aria-current', 'page');
+      }
+      wrapper.before(dashboardLink);
+    }
 
     const trigger = wrapper.querySelector('.account-trigger');
     trigger.addEventListener('click', () => {
