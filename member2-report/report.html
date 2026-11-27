@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tố cáo lừa đảo - Hệ thống Cảnh báo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    
+    <link rel="stylesheet" href="css/report.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            <div class="card shadow border-0 p-4">
+                <h3 class="text-center mb-4 text-danger fw-bold"><i class="fas fa-shield-alt"></i> Gửi Tố Cáo Lừa Đảo</h3>
+
+                <div class="step-indicator px-4">
+                    <div class="step-item active" data-step="1">1</div>
+                    <div class="step-item" data-step="2">2</div>
+                    <div class="step-item" data-step="3">3</div>
+                    <div class="step-item" data-step="4">4</div>
+                </div>
+
+                <form id="reportForm">
+
+                    <div class="step-content active" data-step="1">
+                        <h5 class="mb-3 text-primary">Bước 1: Thông tin đối tượng lừa đảo</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Loại đối tượng</label>
+                            <select class="form-select" id="targetType" required>
+                                <option value="">-- Chọn loại đối tượng --</option>
+                                <option value="bank">Số tài khoản ngân hàng (STK)</option>
+                                <option value="phone">Số điện thoại (SĐT)</option>
+                                <option value="url">Đường dẫn website (URL)</option>
+                                <option value="social">Facebook / Zalo / Telegram</option>
+                            </select>
+                            <div class="invalid-feedback">Vui lòng chọn loại đối tượng.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" id="labelTargetValue">Tên ngân hàng / Nền tảng</label>
+                            <input type="text" class="form-control" id="targetPlatform" placeholder="Ví dụ: Techcombank, Facebook..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Số tài khoản / Số điện thoại / Link chi tiết</label>
+                            <input type="text" class="form-control" id="targetValue" placeholder="Nhập số tài khoản hoặc SĐT hoặc URL..." required>
+                            <div class="invalid-feedback" id="targetValueError">Thông tin không hợp lệ.</div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary next-btn">Tiếp theo <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="step-content" data-step="2">
+                        <h5 class="mb-3 text-primary">Bước 2: Diễn biến sự việc</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Ước tính số tiền thiệt hại (VNĐ)</label>
+                            <input type="number" class="form-control" id="damageAmount" placeholder="Ví dụ: 5000000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mô tả chi tiết thủ đoạn lừa đảo</label>
+                            <textarea class="form-control" id="incidentDesc" rows="4" placeholder="Kể lại ngắn gọn cách thức họ lừa bạn..." required></textarea>
+                            <div class="invalid-feedback">Vui lòng mô tả chi tiết ít nhất 20 ký tự.</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary prev-btn"><i class="fas fa-arrow-left"></i> Quay lại</button>
+                            <button type="button" class="btn btn-primary next-btn">Tiếp theo <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="step-content" data-step="3">
+                        <h5 class="mb-3 text-primary">Bước 3: Tải lên bằng chứng</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Ảnh chụp màn hình / Sao kê chuyển khoản (Tối đa 3 ảnh)</label>
+                            <input type="file" class="form-control" id="evidenceFiles" accept="image/*" multiple>
+                            <div class="form-text">Định dạng hỗ trợ: JPG, PNG. Có thể chọn nhiều ảnh.</div>
+                            <div id="imagePreviewContainer" class="d-flex gap-2 flex-wrap"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary prev-btn"><i class="fas fa-arrow-left"></i> Quay lại</button>
+                            <button type="button" class="btn btn-primary next-btn">Tiếp theo <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="step-content" data-step="4">
+                        <h5 class="mb-3 text-primary">Bước 4: Xác nhận và Gửi</h5>
+                        <div class="alert alert-warning small">
+                            <i class="fas fa-exclamation-triangle"></i> Bạn cam kết các thông tin khai báo là trung thực và chịu trách nhiệm trước pháp luật về tố cáo này.
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="isAnonymous" checked>
+                            <label class="form-check-label" for="isAnonymous">Gửi tố cáo ẩn danh (Ẩn thông tin cá nhân của bạn)</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mã xác thực chống spam: <strong id="captchaText" class="text-danger bg-light px-2 py-1 rounded"></strong></label>
+                            <input type="text" class="form-control" id="captchaInput" placeholder="Nhập lại mã bên trên" required>
+                            <div class="invalid-feedback">Mã CAPTCHA không chính xác.</div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary prev-btn"><i class="fas fa-arrow-left"></i> Quay lại</button>
+                            <button type="submit" class="btn btn-success fw-bold"><i class="fas fa-paper-plane"></i> Hoàn tất & Gửi tố cáo</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="successAlert" class="alert alert-success mt-4 d-none text-center" role="alert">
+                    <h4 class="alert-heading"><i class="fas fa-check-circle"></i> Gửi tố cáo thành công!</h4>
+                    <p>Mã báo cáo của bạn là: <strong id="reportCode">#SC-2026-8892</strong></p>
+                    <hr>
+                    <p class="mb-0 small">Hệ thống Moderator sẽ kiểm duyệt thông tin của bạn trong vòng 24h.</p>
+                    <button class="btn btn-outline-primary btn-sm mt-3" onclick="location.reload()">Gửi tố cáo mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dark-mode.js"></script>
+
+<script src="js/validation.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/report.js"></script>
+</body>
+</html>

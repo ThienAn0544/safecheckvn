@@ -59,7 +59,7 @@ npm start
 Mở `http://localhost:3000/api/health`. Kết quả đúng:
 
 ```json
-{"success":true,"message":"SafeCheck API đang hoạt động"}
+{"success":true,"message":"SafeCheck API đang hoạt động","database":"connected"}
 ```
 
 ## 5. Kiểm tra database
@@ -73,6 +73,8 @@ SELECT id, full_name, email, role, status FROM users;
 ```
 
 Các bảng: `users`, `categories`, `reports`, `warnings`, `news`. `schema.sql` tạo cấu trúc; `seed.sql` thêm danh mục và cảnh báo mẫu. Tài khoản người dùng được tạo từ trang đăng ký, mật khẩu được lưu dưới dạng bcrypt hash.
+
+Đối với chức năng cảnh báo của thành viên 3, danh sách và chi tiết được đọc từ bảng `warnings`, tên danh mục lấy qua liên kết `warnings.category_id` → `categories.id`. Chỉ bản ghi có `warnings.status = 'published'` được hiển thị. Các bộ lọc danh mục, mức độ rủi ro, thời gian và từ khóa được xử lý tại API `/api/warnings`; không cần tạo thêm bảng hoặc nhập dữ liệu thủ công ở frontend.
 
 ## 6. Lỗi thường gặp
 

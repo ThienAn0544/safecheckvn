@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tra cứu các cảnh báo lừa đảo đã được công bố trên SafeCheck.">
+  <title>Danh sách cảnh báo - SafeCheck</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="css/warning.css">
+</head>
+<body class="warning-page">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Điều hướng chính">
+      <a class="brand" href="../index.html"><span class="brand-mark">✓</span>SafeCheck</a>
+      <div class="nav-links">
+        <a href="../index.html">Trang chủ</a>
+        <a class="active" href="warning-list.html">Cảnh báo</a>
+        <a href="../member5-news/news.html">Tin tức</a>
+        <a href="../member2-report/report.html">Gửi báo cáo</a>
+        <a class="button outline" href="../member4-account/login.html">Đăng nhập</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="warning-hero">
+      <div class="container warning-hero__inner">
+        <div class="warning-hero__copy">
+          <span class="warning-eyebrow">Cơ sở dữ liệu cảnh báo cộng đồng</span>
+          <h1>Kiểm tra trước khi <span>bạn tin tưởng.</span></h1>
+          <p>Tra cứu các dấu hiệu lừa đảo đã được công bố, nhận biết thủ đoạn phổ biến và chủ động bảo vệ thông tin cá nhân.</p>
+          <a class="warning-hero__link" href="#warning-search">⌕&nbsp; Tra cứu cảnh báo</a>
+        </div>
+        <div class="warning-hero__visual" aria-hidden="true">
+          <div class="warning-shield">✓</div>
+          <div class="warning-hero__visual-text">
+            <strong>An toàn số bắt đầu từ xác minh</strong>
+            <span>Dừng lại · Kiểm tra · Xác nhận</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="warning-section" id="warning-search">
+      <div class="container">
+        <form id="warning-filters" class="warning-filter-panel">
+          <div class="warning-filter-panel__heading">
+            <div>
+              <span class="warning-eyebrow">Tra cứu dữ liệu</span>
+              <h2>Tìm cảnh báo phù hợp</h2>
+            </div>
+            <span class="warning-filter-panel__hint">Dữ liệu được lấy trực tiếp từ hệ thống</span>
+          </div>
+
+          <div class="warning-filter-grid">
+            <label class="warning-filter-field warning-filter-field--search" for="warning-keyword">
+              <span>Từ khóa</span>
+              <input id="warning-keyword" type="search" name="q" placeholder="Nhập số điện thoại, website, thủ đoạn..." maxlength="120" autocomplete="off">
+            </label>
+
+            <label class="warning-filter-field" for="category-filter">
+              <span>Danh mục</span>
+              <select id="category-filter" name="category_id">
+                <option value="">Tất cả danh mục</option>
+              </select>
+            </label>
+
+            <label class="warning-filter-field" for="risk-filter">
+              <span>Mức độ rủi ro</span>
+              <select id="risk-filter" name="risk_level">
+                <option value="">Tất cả mức độ</option>
+                <option value="low">Rủi ro thấp</option>
+                <option value="medium">Rủi ro trung bình</option>
+                <option value="high">Rủi ro cao</option>
+                <option value="critical">Nguy hiểm</option>
+              </select>
+            </label>
+
+            <label class="warning-filter-field" for="time-filter">
+              <span>Thời gian đăng</span>
+              <select id="time-filter" name="days">
+                <option value="">Tất cả thời gian</option>
+                <option value="7">7 ngày gần đây</option>
+                <option value="30">30 ngày gần đây</option>
+                <option value="90">90 ngày gần đây</option>
+                <option value="365">1 năm gần đây</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="warning-filter-panel__actions">
+            <button class="button" type="submit">⌕&nbsp; Tìm kiếm</button>
+            <button class="warning-reset-button" type="reset">Đặt lại bộ lọc</button>
+          </div>
+        </form>
+
+        <div class="warning-results-heading">
+          <div>
+            <span class="warning-eyebrow">Thông tin đã công bố</span>
+            <h2>Danh sách cảnh báo</h2>
+          </div>
+          <div class="warning-results-summary">
+            <strong id="warning-count">Đang tải...</strong>
+            <span id="warning-page-info" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div id="warning-list" class="warning-grid" aria-live="polite" aria-busy="true">
+          <div class="warning-message loading">Đang tải dữ liệu cảnh báo...</div>
+        </div>
+        <nav id="warning-pagination" class="warning-pagination" aria-label="Phân trang cảnh báo"></nav>
+
+        <aside class="warning-bottom-note">
+          <span aria-hidden="true">ⓘ</span>
+          <p>Thông tin trên SafeCheck nhằm hỗ trợ cộng đồng nhận diện rủi ro. Hãy xác minh qua kênh chính thức trước khi thực hiện giao dịch.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer warning-footer">
+    <div class="container warning-footer__inner">
+      <div><strong>SafeCheck Việt Nam</strong><p>Nền tảng cộng đồng tra cứu và cảnh báo lừa đảo trực tuyến.</p></div>
+      <a href="../index.html">Quay về trang chủ ↑</a>
+      <span>© <span data-current-year>2026</span> SafeCheck</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../backend/public/js/member3/filter.js"></script>
+  <script src="../backend/public/js/member3/warning-list.js"></script>
+</body>
+</html>

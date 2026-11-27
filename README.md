@@ -21,8 +21,8 @@ Front-end chỉ hiển thị, nhập liệu và gọi API. Truy vấn DB và ngh
 | Chức năng | Trạng thái | Ghi chú |
 |---|---|---|
 | Trang chủ xanh–trắng, responsive | Hoàn thành | Số liệu API + dữ liệu dự phòng |
-| Danh sách/tìm kiếm cảnh báo | Hoàn thành MVP | GET API |
-| Chi tiết cảnh báo | Hoàn thành MVP | GET theo ID |
+| Danh sách/tìm kiếm/lọc/phân trang cảnh báo | Hoàn thành | GET API, MySQL `warnings` + `categories` |
+| Chi tiết cảnh báo | Hoàn thành | GET theo ID, chỉ hiển thị bản ghi đã công bố |
 | Gửi báo cáo | Hoàn thành MVP | Validation hai lớp, lưu MySQL |
 | Thống kê tổng quan | Hoàn thành MVP | Đếm reports/warnings/users |
 | Dark mode | Hoàn thành cơ bản | Lưu localStorage |
@@ -58,7 +58,8 @@ Front-end chỉ hiển thị, nhập liệu và gọi API. Truy vấn DB và ngh
 | Trang | API | Kết quả |
 |---|---|---|
 | Trang chủ | `GET /api/stats` | Tổng báo cáo/cảnh báo/người dùng |
-| Cảnh báo | `GET /api/warnings?q=...` | Danh sách đã công bố |
+| Cảnh báo | `GET /api/warnings?q=...&category_id=...&risk_level=...&days=...&page=...` | Tìm kiếm, lọc và phân trang dữ liệu đã công bố |
+| Danh mục cảnh báo | `GET /api/warnings/categories` | Lấy danh mục từ MySQL |
 | Chi tiết | `GET /api/warnings/:id` | Cảnh báo theo ID |
 | Gửi báo cáo | `POST /api/reports` | Tạo báo cáo, trả ID |
 | Đăng ký | `POST /api/auth/register` | Tạo user, hash mật khẩu, trả JWT |
@@ -136,7 +137,7 @@ Chi tiết trường, index, PK, FK và `ON DELETE` nằm trong `DB/schema.sql`.
 
 ```text
 assets/js/                  JavaScript dùng chung toàn website
-backend/public/js/          JavaScript theo chức năng: home, report, warning, account
+backend/public/js/member*/  DOM, form, fetch API và hiển thị của thành viên 1–4
 backend/server.js           Express, middleware, static files
 backend/routes/             URL và HTTP method
 backend/controllers/        Validation, truy vấn, JSON response
@@ -145,12 +146,12 @@ backend/middleware/         Xử lý lỗi
 DB/                         Schema và seed, không phải JS runtime
 ```
 
-Express phục vụ JavaScript tĩnh trong backend/public/js/. Các trang được chia theo chức năng trong report/, warning/, account/, news/ và admin/. Trang chủ nằm ở index.html.
+Theo quy ước của nhóm, JavaScript đã hoàn thành của thành viên 1–4 được tập trung tại `backend/public/js/` và được Express phục vụ như tài nguyên tĩnh. Các file placeholder của thành viên 5–6 vẫn nằm trong thư mục thành viên. Logic truy vấn dữ liệu nằm riêng trong controller Back-end.
 
 ## Cấu trúc phần đăng nhập
 
 ```text
-account/
+member4-account/
 ├── login.html                         Form email/mật khẩu
 ├── register.html                      Form tạo tài khoản
 ├── forgot-password.html               Giao diện quên mật khẩu
@@ -162,7 +163,7 @@ backend/
 ├── controllers/auth.controller.js     Kiểm tra dữ liệu, bcrypt và JWT
 ├── middleware/require-auth.js          Xác thực Bearer token
 ├── config/database.js                 Pool kết nối MySQL
-└── public/js/account/
+└── public/js/member4/
     ├── login.js                       Gửi form đăng nhập, lưu token
     ├── register.js                    Gửi form đăng ký
     └── profile.js                     Hiển thị/lưu thông tin hồ sơ
@@ -208,6 +209,10 @@ JWT_EXPIRES_IN=7d
 ```
 
 Không lưu hoặc gửi `password_hash` về Front-end. Khi sửa `JWT_SECRET`, mọi token cũ sẽ mất hiệu lực.
+
+## Hướng dẫn Thành viên 3
+
+Các bước cấu hình MySQL, chạy API, mở giao diện và kiểm tra chức năng cảnh báo được ghi tại `HUONG_DAN_THANH_VIEN_3.md`.
 
 ## Cài đặt và biến môi trường
 

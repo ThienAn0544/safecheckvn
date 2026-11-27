@@ -1,5 +1,1 @@
 @media(max-width:800px){.nav-links{display:none}.hero{padding-top:52px}.hero-grid,.grid-3{grid-template-columns:1fr}.hero-card{order:-1}.stats-grid{grid-template-columns:1fr}.stat+.stat{border-left:0;border-top:1px solid var(--line)}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-grid{display:block}.admin-layout{grid-template-columns:1fr}.sidebar{display:flex;gap:20px;overflow:auto}.warning-item{align-items:flex-start;flex-direction:column}.page-head h1{font-size:2rem}}
-@media (max-width: 800px) {
-  .nav-links.nav-links-admin { display: flex; gap: 8px; }
-  .nav-links-admin > :not(.admin-nav-link):not([data-dark-toggle]) { display: none; }
-}

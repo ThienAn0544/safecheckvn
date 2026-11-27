@@ -23,7 +23,7 @@ document.querySelectorAll('[data-current-year]').forEach(el => { el.textContent 
 function setupAccountMenu() {
   const token = localStorage.getItem('safecheck-token') || sessionStorage.getItem('safecheck-token');
   const rawUser = localStorage.getItem('safecheck-user') || sessionStorage.getItem('safecheck-user');
-  const loginLink = document.querySelector('a[href*="account/login.html"]');
+  const loginLink = document.querySelector('a[href*="member4-account/login.html"]');
   if (!token || !rawUser || !loginLink) return;
 
   try {
@@ -43,17 +43,6 @@ function setupAccountMenu() {
         <button type="button" data-logout>Đăng xuất</button>
       </div>`;
     loginLink.replaceWith(wrapper);
-    if (user.role === 'admin') {
-      const dashboardLink = document.createElement('a');
-      dashboardLink.href = new URL('../admin/admin.html', loginLink.href).href;
-      dashboardLink.textContent = 'Quản trị';
-      dashboardLink.className = 'admin-nav-link';
-      wrapper.parentElement.classList.add('nav-links-admin');
-      if (location.pathname === new URL(dashboardLink.href).pathname) {
-        dashboardLink.setAttribute('aria-current', 'page');
-      }
-      wrapper.before(dashboardLink);
-    }
 
     const trigger = wrapper.querySelector('.account-trigger');
     trigger.addEventListener('click', () => {
