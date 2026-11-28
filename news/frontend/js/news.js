@@ -29,203 +29,7 @@
     }
   };
 
-  var ARTICLES = [
-    {
-      id: "gia-mao-vneid-cong-an-2026",
-      title: "Cảnh báo thủ đoạn giả mạo Công an hướng dẫn kích hoạt VNeID qua đường link lạ",
-      category: "canh-bao-nong",
-      date: "2026-11-16",
-      readTime: "4 phút đọc",
-      author: "Ban Biên Tập SafeCheck",
-      featured: true,
-      views: 5420,
-      tags: ["VNeID", "GiaMaoCongAn", "MaDocAPK", "ChiemQuyenDienThoai"],
-      summary:
-        "Kẻ gian gọi điện tự xưng cán bộ Công an thông báo dữ liệu dân cư bị lỗi, dụ người dân tải ứng dụng VNeID giả mạo dạng file .APK để chiếm quyền điều khiển điện thoại và rút tiền tài khoản ngân hàng.",
-      warningNote:
-        "Cơ quan Công an KHÔNG bao giờ gọi điện yêu cầu người dân cài đặt ứng dụng qua link lạ hoặc tệp .APK ngoài Google Play / App Store.",
-      sections: [
-        {
-          heading: "1. Kịch bản tiếp cận nạn nhân",
-          paragraphs: [
-            "Đối tượng đọc chính xác họ tên, số CCCD, địa chỉ thường trú của nạn nhân để tạo lòng tin tuyệt đối, sau đó thông báo hồ sơ định danh điện tử mức 2 đang bị sai lệch và yêu cầu cập nhật gấp.",
-            "Nạn nhân được kết bạn qua Zalo và nhận đường dẫn tải ứng dụng giả mạo có giao diện giống hệt Cổng dịch vụ công."
-          ]
-        },
-        {
-          heading: "2. Cơ chế đánh cắp OTP và rút tiền",
-          paragraphs: [
-            "Sau khi cài đặt và cấp quyền Trợ năng (Accessibility), mã độc âm thầm đọc tin nhắn SMS OTP, ghi lại thao tác nhập mật khẩu ngân hàng và thực hiện lệnh chuyển tiền từ xa."
-          ]
-        },
-        {
-          heading: "3. Biện pháp phòng tránh",
-          bullets: [
-            "Tuyệt đối không tải tệp .APK từ tin nhắn Zalo, Facebook hoặc trình duyệt lạ.",
-            "Chỉ cập nhật thông tin định danh trực tiếp tại Công an xã/phường nơi cư trú.",
-            "Nếu lỡ cài đặt, lập tức tắt Wi-Fi/4G, tháo SIM và gọi tổng đài ngân hàng khóa tài khoản."
-          ]
-        }
-      ]
-    },
-    {
-      id: "bay-cong-tac-vien-chot-don-hoan-hoa-hong",
-      title: "Bẫy tuyển cộng tác viên làm nhiệm vụ tương tác, chốt đơn hoàn hoa hồng online",
-      category: "thu-doan",
-      date: "2026-11-13",
-      readTime: "5 phút đọc",
-      author: "Tổ Phân Tích Thủ Đoạn",
-      featured: false,
-      views: 4180,
-      tags: ["ViecNheLuongCao", "CongTacVien", "LuaDaoChuyenKhoan", "Telegram"],
-      summary:
-        "Ban đầu nạn nhân được hoàn tiền gốc kèm hoa hồng 10–15% chỉ sau vài phút cho đơn hàng nhỏ. Khi nạp hàng chục triệu đồng, hệ thống báo 'lỗi cú pháp' và ép nạp thêm để mở khóa vốn.",
-      warningNote:
-        "Bất kỳ công việc online nào yêu cầu chuyển tiền trước để nhận nhiệm vụ hoặc mở khóa hoa hồng đều là lừa đảo 100%.",
-      sections: [
-        {
-          heading: "1. Chiêu trò 'thả con săn sắt, bắt con cá rô'",
-          paragraphs: [
-            "Ở 2–3 nhiệm vụ đầu trị giá 100.000đ – 300.000đ, kẻ gian thanh toán hoa hồng sòng phẳng để tạo niềm tin.",
-            "Sau đó nạn nhân được đưa vào nhóm Telegram có nhiều tài khoản 'chim mồi' liên tục khoe biên lai nhận lãi hàng trăm triệu đồng."
-          ]
-        },
-        {
-          heading: "2. Dấu hiệu nhận diện sớm",
-          bullets: [
-            "Website giả mạo sàn thương mại điện tử lớn nhưng tên miền chứa ký tự lạ.",
-            "Tài khoản nhận tiền là tài khoản cá nhân thay đổi liên tục sau mỗi lần chuyển.",
-            "Thúc giục nạn nhân vay mượn nạp thêm trong thời gian ngắn để 'không mất tiền cũ'."
-          ]
-        }
-      ]
-    },
-    {
-      id: "cuoc-goi-video-deepfake-vay-tien-gap",
-      title: "Nhận diện cuộc gọi video Deepfake giả người thân, đồng nghiệp hỏi mượn tiền gấp",
-      category: "thu-doan",
-      date: "2026-11-10",
-      readTime: "3 phút đọc",
-      author: "Ban Biên Tập SafeCheck",
-      featured: false,
-      views: 3560,
-      tags: ["Deepfake", "GiaMaoNguoiThan", "AI", "XacMinhGiaoDich"],
-      summary:
-        "Kẻ gian chiếm quyền tài khoản mạng xã hội, sử dụng công nghệ AI ghép khuôn mặt và giọng nói gọi video chớp nhoáng 3–5 giây rồi viện cớ mạng yếu để yêu cầu chuyển tiền cấp cứu.",
-      warningNote:
-        "Luôn gọi lại trực tiếp vào số điện thoại di động thông thường trước khi chuyển tiền cho người thân hoặc bạn bè.",
-      sections: [
-        {
-          heading: "1. Đặc điểm nhận biết cuộc gọi Deepfake",
-          paragraphs: [
-            "Video thường chỉ kéo dài 3–5 giây, hình ảnh mờ, ánh sáng thiếu tự nhiên và khẩu hình miệng lệch nhẹ với âm thanh.",
-            "Đối tượng luôn tạo bối cảnh khẩn cấp (tai nạn, cấp cứu, đáo hạn) để nạn nhân mất bình tĩnh."
-          ]
-        },
-        {
-          heading: "2. Quy tắc kiểm tra 30 giây",
-          bullets: [
-            "Tắt cuộc gọi trên ứng dụng và gọi lại bằng số điện thoại di động đã lưu trong danh bạ.",
-            "Đặt câu hỏi riêng tư mà chỉ hai người biết.",
-            "Nếu số tài khoản nhận tiền không trùng tên người thân thì dừng giao dịch ngay lập tức."
-          ]
-        }
-      ]
-    },
-    {
-      id: "6-thiet-lap-bao-mat-ung-dung-ngan-hang",
-      title: "6 thiết lập bảo mật bắt buộc trên điện thoại và ứng dụng ngân hàng để chặn mất tiền",
-      category: "cam-nang",
-      date: "2026-11-06",
-      readTime: "4 phút đọc",
-      author: "Chuyên Gia An Toàn Số",
-      featured: false,
-      views: 3120,
-      tags: ["BaoMatNganHang", "SinhTracHoc", "OTP", "CamNangAnToan"],
-      summary:
-        "Hướng dẫn đặt hạn mức chuyển khoản ngày, kích hoạt xác thực sinh trắc học, khóa thanh toán quốc tế online khi chưa dùng và đặt mã PIN cho thẻ SIM.",
-      warningNote:
-        "Không lưu ảnh chụp hai mặt CCCD, mật khẩu ngân hàng hoặc mã PIN trong mục Ghi chú của điện thoại.",
-      sections: [
-        {
-          heading: "1. Giới hạn hạn mức giao dịch hằng ngày",
-          paragraphs: [
-            "Cài đặt hạn mức chuyển tiền nhanh 24/7 ở mức phù hợp với chi tiêu thực tế hằng ngày để giảm thiểu rủi ro khi xảy ra sự cố."
-          ]
-        },
-        {
-          heading: "2. Danh sách kiểm tra bảo mật 5 phút",
-          bullets: [
-            "Cài mã PIN cho SIM tại nhà mạng để ngăn chặn hành vi chiếm đoạt SIM nhận SMS OTP.",
-            "Bật xác thực 2 lớp (2FA) qua ứng dụng Authenticator cho Email, Facebook và Zalo.",
-            "Tắt tính năng thanh toán trực tuyến thẻ tín dụng/ghi nợ quốc tế trên app ngân hàng khi không sử dụng."
-          ]
-        }
-      ]
-    },
-    {
-      id: "gia-danh-shipper-thu-phi-huy-hoi-vien",
-      title: "Chiêu lừa giả danh shipper giao hàng thu 15.000đ rồi gửi link 'hủy gói hội viên'",
-      category: "canh-bao-nong",
-      date: "2026-11-03",
-      readTime: "4 phút đọc",
-      author: "Ban Biên Tập SafeCheck",
-      featured: false,
-      views: 4690,
-      tags: ["GiaDanhShipper", "LinkDocHai", "GiaoHang", "CanhBaoNong"],
-      summary:
-        "Kẻ gian gọi báo gửi đơn hàng ở lễ tân/bảo vệ và yêu cầu chuyển 15.000đ – 30.000đ. Ngay sau đó chúng báo nạn nhân chuyển nhầm vào tài khoản hội viên tự trừ 3,5 triệu/tháng và gửi link dụ hủy gói.",
-      warningNote:
-        "Các hãng vận chuyển chính thống KHÔNG thu phí hội viên hằng tháng và không gửi link lạ để hoàn tiền.",
-      sections: [
-        {
-          heading: "1. Diễn biến thủ đoạn",
-          paragraphs: [
-            "Lợi dụng tâm lý số tiền nhỏ nên khách hàng chuyển khoản ngay mà không đối chiếu trên ứng dụng mua sắm.",
-            "Sau khi nạn nhân chuyển tiền, kẻ gian gọi lại dọa sẽ bị trừ tự động 3,5 triệu đồng/tháng nếu không bấm vào đường dẫn 'trung tâm hỗ trợ' để hủy đăng ký."
-          ]
-        },
-        {
-          heading: "2. Cách xử lý an toàn",
-          bullets: [
-            "Mở trực tiếp ứng dụng Shopee, Lazada, TikTok Shop hoặc app giao hàng để kiểm tra mã vận đơn.",
-            "Không bấm vào bất kỳ đường link hủy gói hay nhập mã OTP nào.",
-            "Tra cứu SĐT và số tài khoản đối tượng trên SafeCheck để cảnh báo cộng đồng."
-          ]
-        }
-      ]
-    },
-    {
-      id: "quy-dinh-phap-luat-xu-ly-lua-dao-truc-tuyen",
-      title: "Quy định pháp luật về xử lý tội phạm lừa đảo chiếm đoạt tài sản trên không gian mạng",
-      category: "phap-luat",
-      date: "2026-10-29",
-      readTime: "5 phút đọc",
-      author: "Tư Vấn Pháp Lý Cộng Đồng",
-      featured: false,
-      views: 2190,
-      tags: ["PhapLuat", "BoLuatHinhSu", "TrinhBaoCongAn", "QuyenLoiBiHai"],
-      summary:
-        "Tổng hợp quy định tại Điều 174 và Điều 290 Bộ luật Hình sự về hành vi lừa đảo qua mạng máy tính, viễn thông và hướng dẫn thu thập chứng cứ hợp pháp khi trình báo.",
-      warningNote:
-        "Việc trình báo sớm trong 24 giờ đầu giúp cơ quan Công an kịp thời phối hợp ngân hàng phong tỏa tài khoản nghi vấn.",
-      sections: [
-        {
-          heading: "1. Chế tài xử lý theo Bộ luật Hình sự",
-          paragraphs: [
-            "Hành vi dùng thủ đoạn gian dối trên mạng máy tính, mạng viễn thông để chiếm đoạt tài sản từ 2.000.000 đồng trở lên có thể bị truy cứu trách nhiệm hình sự theo Điều 174 hoặc Điều 290 Bộ luật Hình sự."
-          ]
-        },
-        {
-          heading: "2. Chứng cứ cần chuẩn bị khi nộp đơn",
-          bullets: [
-            "Sao kê giao dịch ngân hàng có xác nhận mã tham chiếu chuyển khoản.",
-            "Ảnh chụp/video màn hình toàn bộ lịch sử tin nhắn, cuộc gọi, SĐT và STK đối tượng."
-          ]
-        }
-      ]
-    }
-  ];
+  var ARTICLES = [];
 
   var BANK_HOTLINES = [
     { bank: "Vietcombank", hotline: "1900 54 54 13", note: "Khóa thẻ & báo giao dịch gian lận 24/7" },
@@ -273,10 +77,10 @@
      ========================================================= */
   function initNewsletterForms() {
     var forms = document.querySelectorAll("[data-newsletter-form]");
-    var STORAGE_KEY = "safecheck-newsletter-emails";
+
 
     forms.forEach(function (form) {
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
         var input = form.querySelector('input[type="email"]');
         var msg = form.querySelector(".sc5-newsletter-msg");
@@ -291,20 +95,18 @@
           return;
         }
 
+        var button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        msg.textContent = "Đang lưu đăng ký...";
         try {
-          var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-          if (saved.indexOf(email) !== -1) {
-            msg.className = "sc5-newsletter-msg";
-            msg.textContent = "Email này đã đăng ký nhận bản tin trước đó.";
-            return;
-          }
-          saved.push(email);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-        } catch (err) {}
-
-        msg.className = "sc5-newsletter-msg";
-        msg.textContent = "Đăng ký thành công! Bạn sẽ nhận bản tin cảnh báo hằng tuần.";
-        input.value = "";
+          await api('/api/news/subscriptions', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:email})});
+          msg.className = "sc5-newsletter-msg";
+          msg.textContent = "Đã lưu đăng ký nhận bản tin.";
+          input.value = "";
+        } catch (err) {
+          msg.className = "sc5-newsletter-msg is-err";
+          msg.textContent = err.message;
+        } finally { button.disabled = false; }
       });
     });
   }
@@ -340,6 +142,7 @@
         ARTICLES.find(function (a) {
           return a.featured;
         }) || ARTICLES[0];
+      if (!top) return;
       var cat = CATEGORY_INFO[top.category] || CATEGORY_INFO["canh-bao-nong"];
 
       featuredEl.innerHTML =
@@ -366,7 +169,8 @@
         "</div></div></article>";
     }
 
-    function renderCards() {
+    var requestId = 0;
+    async function renderCards() {
       tabButtons.forEach(function (btn) {
         btn.classList.toggle("active", btn.getAttribute("data-cat") === state.cat);
       });
@@ -378,27 +182,12 @@
         rawKw = "";
       }
 
-      var filtered = ARTICLES.filter(function (a) {
-        var matchCat = state.cat === "all" || a.category === state.cat;
-        var matchTag =
-          !tagFilter ||
-          (a.tags || []).some(function (t) {
-            return t.toLowerCase().indexOf(tagFilter) !== -1;
-          });
-        var matchKw =
-          !rawKw ||
-          a.title.toLowerCase().indexOf(rawKw) !== -1 ||
-          a.summary.toLowerCase().indexOf(rawKw) !== -1 ||
-          (a.tags || []).some(function (t) {
-            return t.toLowerCase().indexOf(rawKw) !== -1;
-          });
-        return matchCat && matchTag && matchKw;
-      });
-
-      filtered.sort(function (a, b) {
-        if (state.sort === "popular") return (b.views || 0) - (a.views || 0);
-        return String(b.date).localeCompare(String(a.date));
-      });
+      var seq = ++requestId;
+      var filtered;
+      try {
+        filtered = await api('/api/news?' + new URLSearchParams({cat:state.cat,q:rawKw,tag:tagFilter,sort:state.sort}));
+        if (seq !== requestId) return;
+      } catch (err) { if (seq === requestId) gridEl.textContent = err.message; return; }
 
       if (countEl) {
         countEl.textContent = "Hiển thị " + filtered.length + " bài viết";
@@ -480,7 +269,8 @@
     var article =
       ARTICLES.find(function (a) {
         return a.id === id;
-      }) || ARTICLES[0];
+      });
+    if (!article) { articleHost.textContent = "Không tìm thấy bài viết."; return; }
 
     document.title = article.title + " - SafeCheck";
     var crumbTitle = document.getElementById("crumb-title");
@@ -764,7 +554,29 @@
   }
 
   initNewsletterForms();
-  initNewsPage();
-  initNewsDetailPage();
+  async function api(url, options) {
+    var response = await fetch(url, options);
+    var result = await response.json();
+    if (!response.ok) throw new Error(result.message || 'Không thể tải dữ liệu.');
+    return result.data;
+  }
+  async function startNews() {
+    var host = document.getElementById('news-grid') || document.getElementById('article-detail');
+    if (!host) return;
+    host.textContent = 'Đang tải dữ liệu từ SafeCheck...';
+    try {
+      ARTICLES = await api('/api/news');
+      if (host.id === 'article-detail') {
+        var id = new URLSearchParams(location.search).get('id');
+        var article = await api('/api/news/' + encodeURIComponent(id || ''));
+        ARTICLES = [article].concat(ARTICLES.filter(a => a.id !== article.id));
+        initNewsDetailPage();
+      } else initNewsPage();
+    } catch (err) {
+      host.textContent = 'Không thể tải bài viết: ' + err.message + '. ';
+      var retry = document.createElement('button'); retry.textContent = 'Thử lại'; retry.className = 'button'; retry.onclick = startNews; host.appendChild(retry);
+    }
+  }
+  startNews();
   initGuidePage();
 })();
